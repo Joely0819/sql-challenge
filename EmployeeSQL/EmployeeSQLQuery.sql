@@ -1,108 +1,36 @@
-create table departments (
-	
-	dept_number varchar,
-	dept_name varchar
+--List the following details of each employee: employee number, last name, first name, sex, and salary.
+Select employees.emp_number,
+employees.last_name,
+employees.first_name,
+employees.sex,
+salaries.salary
 
-);
-select * from departments;
+From employees
+Left Join salaries
+On employees.emp_number = salaries.emp_number
+order by emp_number;
 
---import departments CSV
+-- List first name, last name, and hire date for employees who were hired in 1986.
+Select employees.first_name,
+employees.last_name,
+employees.hire_date
+From employees
+order by last_name
 
-COPY departments
-FROM 'C:\Users\joely\Desktop\CSV_SQL\departments.csv'
-DELIMITER ',' 
-CSV HEADER;
 
---create table for department and employees
-create table dept_emp (
-	
-	emp_number varchar,
-	dept_number varchar
+-- List the manager of each department with the following information: department number, department name, the manager's employee number, last name, first name.
 
-);
-select * from dept_emp;
 
---import departments CSV
+-- List the department of each employee with the following information: employee number, last name, first name, and department name.
 
-COPY dept_emp
-FROM 'C:\Users\joely\Desktop\CSV_SQL\dept_emp.csv'
-DELIMITER ',' 
-CSV HEADER;
 
---create table for department and managers
-create table dept_manager (
-	
-	dept_number varchar,
-	manager_number varchar
+-- List first name, last name, and sex for employees whose first name is "Hercules" and last names begin with "B."
 
-);
-select * from dept_manager;
 
---import managers CSV
+-- List all employees in the Sales department, including their employee number, last name, first name, and department name.
 
-COPY dept_manager
-FROM 'C:\Users\joely\Desktop\CSV_SQL\dept_manager.csv'
-DELIMITER ',' 
-CSV HEADER;
 
---create table for employees
-create table employees (
-	
-	emp_number varchar,
-	emp_title_id varchar,
-	birth_date varchar,
-	first_name varchar,
-	last_name varchar,
-	sex varchar,
-	hire_date varchar
-	
+-- List all employees in the Sales and Development departments, including their employee number, last name, first name, and department name.
 
-);
-select * from employees;
 
---import employees CSV
-
-COPY employees
-FROM 'C:\Users\joely\Desktop\CSV_SQL\employees.csv'
-DELIMITER ',' 
-CSV HEADER;
---show import
-select * from employees;
-
---create table for salaries
-create table salaries (
-	
-	emp_number varchar,
-	salary int
-	
-
-);
-select * from salaries;
-
---import employees CSV
-
-COPY salaries
-FROM 'C:\Users\joely\Desktop\CSV_SQL\salaries.csv'
-DELIMITER ',' 
-CSV HEADER;
---show import
-select * from salaries;
-
---create table for titles
-create table titles (
-	
-	title_id varchar,
-	title varchar
-	
-
-);
-select * from titles;
-
---import employees CSV
-
-COPY titles
-FROM 'C:\Users\joely\Desktop\CSV_SQL\titles.csv'
-DELIMITER ',' 
-CSV HEADER;
---show titles import
-select * from titles;
+-- In descending order, list the frequency count of employee last names, i.e., how many employees share each last name.
