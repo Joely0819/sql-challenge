@@ -54,7 +54,8 @@ create table employees (
 	first_name varchar,
 	last_name varchar,
 	sex varchar,
-	hire_date varchar
+	hire_date date,
+	Primary Key (emp_number)
 	
 
 );
