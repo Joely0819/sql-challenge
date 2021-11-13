@@ -1,29 +1,28 @@
-
-Departments
+departments
 -
-dept_number VARCHAR
-dept_name VARCHAR
+dept_number varchar
+dept_name varchar
 
 dept_emp
 -
-emp_number INT FK >- employees.emp_number 
+emp_number int FK >- employees.emp_number 
 dept_number varchar FK >- departments.dept_number
 
 
 dept_manager
 -
 dept_number varchar FK >- departments.dept_number
-manager_number varchar
+manager_number varchar FK >- employees.emp_number 
 
-Employees
+employees
 -
-emp_number varchar FK >- employees.emp_number 
+emp_number varchar 
 emp_title_id varchar
 birth_date varchar
 first_name varchar
 last_name varchar
 sex varchar
-hire_date varchar
+hire_date date
 
 Salaries
 -
@@ -34,6 +33,3 @@ Titles
 -
 title_id varchar FK >- employees.emp_title_id
 title varchar
-
-
-
